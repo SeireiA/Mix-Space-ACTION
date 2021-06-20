@@ -115,5 +115,5 @@ jobs:
         - name: Upload admin Build Artifact
           uses: actions/upload-artifact@v2.2.2
           with:
-            name: Mix-Space_Admin
+            name: Mix-Space_Admin_Vue3
             path: /home/runner/work/Mix-Space-ACTION/Mix-Space-ACTION/admin-vue3/dist
