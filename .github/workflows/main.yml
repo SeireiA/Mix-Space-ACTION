@@ -104,8 +104,8 @@ jobs:
             cd admin-vue3
             sudo yarn
             sudo rm -rf .env.production
-            echo "export const configs = {title: '秉性之松',}" > ./admin-vue3/src/configs.ts
-            cat ./admin-vue3/src/configs.ts
+            echo "export const configs = {title: '秉性之松',}" > /src/configs.ts
+            cat /src/configs.ts
             sudo mv ../admin_config/.env.production .env.production
             echo "成功填入用户文件"
             sudo yarn build
