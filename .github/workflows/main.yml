@@ -105,7 +105,7 @@ jobs:
             sudo yarn
             sudo rm -rf .env.production
             pwd
-            echo "export const configs = {title: '秉性之松',}" > /home/runner/work/Mix-Space-ACTION/Mix-Space-ACTION/admin-vue3/src/configs.ts
+            echo "export const configs = {title: 'wibus',}" > /home/runner/work/Mix-Space-ACTION/Mix-Space-ACTION/admin-vue3/src/configs.ts
             cat /home/runner/work/Mix-Space-ACTION/Mix-Space-ACTION/admin-vue3/src/configs.ts
             sudo mv ../admin_config/.env.production .env.production
             echo "成功填入用户文件"
