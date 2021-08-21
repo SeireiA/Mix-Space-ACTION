@@ -89,3 +89,31 @@ jobs:
           with:
             name: Mix-Space_Admin
             path: ./admin/dist
+    build-admin-vue3:
+        name: Build Mix-Space(admin-vue3)
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout
+          uses: actions/checkout@v2
+        - name: Setup Node.js environment
+          uses: actions/setup-node@v2.1.4
+        - name: Build admin
+          run: |
+            git clone https://github.com/mx-space/admin-vue3
+            sudo npm install rimraf -g
+            cd /home/runner/work/Mix-Space-ACTION/Mix-Space-ACTION/admin-vue3
+            sudo yarn
+            sudo rm -rf .env.production
+            pwd
+            echo "export const configs = {title: 'wibus',}" > /home/runner/work/Mix-Space-ACTION/Mix-Space-ACTION/admin-vue3/src/configs.ts
+            cat /home/runner/work/Mix-Space-ACTION/Mix-Space-ACTION/admin-vue3/src/configs.ts
+            sudo mv ../admin_config/.env.production .env.production
+            echo "成功填入用户文件"
+            sudo yarn build
+            echo "删除node_modules"
+            sudo rm -rf node_modules
+        - name: Upload admin Build Artifact
+          uses: actions/upload-artifact@v2.2.2
+          with:
+            name: Mix-Space_Admin_Vue3
+            path: /home/runner/work/Mix-Space-ACTION/Mix-Space-ACTION/admin-vue3/dist
